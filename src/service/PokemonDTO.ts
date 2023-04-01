@@ -1,4 +1,4 @@
-import { Pokemon } from '../models/pokemon';
+import {Pokemon} from '../models/pokemon';
 
 export class PokemonDTO {
     id: number;
@@ -15,4 +15,10 @@ export function mapFromDTO(pokemon: PokemonDTO): Pokemon {
         id: pokemon.id,
         name: pokemon.name,
     };
+}
+
+export function isPokemonDTO(object: unknown): object is PokemonDTO {
+    return object !== null && typeof object === "object"
+        && "id" in object
+        && "name" in object;
 }

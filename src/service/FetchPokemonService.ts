@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PokemonDTO } from './PokemonDTO';
+import {isPokemonDTO, PokemonDTO} from './PokemonDTO';
 
 export class FetchPokemonService {
     private instance = axios.create({
@@ -8,11 +8,14 @@ export class FetchPokemonService {
     });
 
     async fetchPokemon(id: number): Promise<PokemonDTO> {
-        const url = `pokemon/${ id }`;
+        const url = `pokemon/${id}`;
+        const responseData: unknown = (await this.instance.get(url)).data;
 
-        const response = await this.instance.get(url);
-
-        return new PokemonDTO(response.data.name, response.data.id); // TODO add typesafety to axios call
+        if (isPokemonDTO(responseData)) {
+            return responseData
+        } else {
+            throw new Error('Couldn\'t fetch pokemon')
+        }
     }
 }
 

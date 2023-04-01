@@ -1,27 +1,27 @@
-import { createModel } from '@rematch/core';
+import {createModel} from '@rematch/core';
 import fetchPokemonService from '../service/FetchPokemonService';
-import { mapFromDTO } from '../service/PokemonDTO';
-import { RootModel } from './index';
+import {mapFromDTO} from '../service/PokemonDTO';
+import {RootModel} from './index';
 
-export type Pokemon = { // TODO read upon class vs type
+export type Pokemon = {
     id: number,
     name: string,
 }
 
 interface PokemonState {
-    selectedPokemon: Pokemon, // TODO read up on nullability best practise
-    currentlySelectedPokemonId: number | null,
+    selectedPokemon?: Pokemon, // TODO read up on nullability best practise
+    currentlySelectedPokemonId?: number,
     availablePokemon: Array<Pokemon>,
 }
 
 export const pokemon = createModel<RootModel>()({
     state: {
-        selectedPokemon: { name: '', id: 0 },
-        currentlySelectedPokemonId: null,
+        selectedPokemon: undefined,
+        currentlySelectedPokemonId: undefined,
         availablePokemon: [],
     } as PokemonState,
     reducers: {
-        changeSelectedPokemon(state, selectedPokemon: Pokemon) {
+        changeSelectedPokemon(state, selectedPokemon?: Pokemon) {
             return {
                 ...state,
                 selectedPokemon: selectedPokemon,

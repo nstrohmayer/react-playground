@@ -1,8 +1,8 @@
-import { createModel } from '@rematch/core';
-import { RootModel } from './index';
+import {createModel} from '@rematch/core';
+import {RootModel} from './index';
 
-export interface CountState {
-    currentCount: number,
+type CountState = {
+    currentCount: number
     numberOfResets: number
 }
 
