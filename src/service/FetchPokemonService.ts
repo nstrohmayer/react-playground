@@ -1,15 +1,11 @@
-import axios from 'axios';
 import {isPokemonDTO, PokemonDTO} from './PokemonDTO';
+import pokemonApi from "./PokemonApi";
 
-export class FetchPokemonService {
-    private instance = axios.create({
-        baseURL: 'https://pokeapi.co/api/v2/',
-        timeout: 1000,
-    });
+class FetchPokemonService {
 
     async fetchPokemon(id: number): Promise<PokemonDTO> {
         const url = `pokemon/${id}`;
-        const responseData: unknown = (await this.instance.get(url)).data;
+        const responseData: unknown = (await pokemonApi.axiosInstance.get(url)).data;
 
         if (isPokemonDTO(responseData)) {
             return responseData

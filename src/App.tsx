@@ -28,6 +28,8 @@ function App() {
     return (
         <div className="App">
             <RouterProvider router={ router } />
+            <CustomComponent1 onSubmit={handleFormFinished}></CustomComponent1>
+            <SecondPage></SecondPage>
         </div>
     );
 }
