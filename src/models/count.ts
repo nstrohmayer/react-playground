@@ -7,8 +7,8 @@ interface CountState {
 }
 
 export const count = createModel<RootModel>()({
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   state: {
-    // eslint-disable-line @typescript-eslint/consistent-type-assertions
     currentCount: 0,
     numberOfResets: 0,
   } as CountState,

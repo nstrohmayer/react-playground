@@ -15,8 +15,8 @@ interface PokemonState {
 }
 
 export const pokemon = createModel<RootModel>()({
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   state: {
-    // eslint-disable-line @typescript-eslint/consistent-type-assertions
     selectedPokemon: undefined,
     currentlySelectedPokemonId: undefined,
     availablePokemon: [],
