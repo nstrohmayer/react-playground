@@ -1,7 +1,7 @@
 import React from "react"
 import { useRouteError } from "react-router-dom"
 
-interface RoutingError {
+type RoutingError = {
   statusText: string
   message: string
 }

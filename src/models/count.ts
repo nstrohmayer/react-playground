@@ -1,7 +1,7 @@
 import { createModel } from "@rematch/core"
 import { type RootModel } from "./index"
 
-interface CountState {
+type CountState = {
   currentCount: number
   numberOfResets: number
 }

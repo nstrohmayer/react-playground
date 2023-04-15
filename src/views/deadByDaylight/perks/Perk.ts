@@ -1,4 +1,4 @@
-export interface Perk {
+export type Perk = {
   id: number
   name: string
 }

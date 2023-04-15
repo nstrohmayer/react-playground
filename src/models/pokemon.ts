@@ -3,7 +3,7 @@ import fetchPokemonService from "../service/FetchPokemonService"
 import { mapFromDTO } from "../service/PokemonDTO"
 import { type RootModel } from "./index"
 
-export interface Pokemon {
+export type Pokemon = {
   id: number
   name: string
 }
