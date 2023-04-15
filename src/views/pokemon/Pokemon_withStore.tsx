@@ -3,29 +3,31 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Dispatch, RootState} from '../../store';
 
 const PokemonWithStore: React.FC = () => {
-    const selectedPokemon = useSelector((state: RootState) => state.pokemon.selectedPokemon);
-    const dispatch = useDispatch<Dispatch>();
+  const selectedPokemon = useSelector((state: RootState) => state.pokemon.selectedPokemon);
+  const dispatch = useDispatch<Dispatch>();
 
-    async function handleInputChanged(event: ChangeEvent<HTMLInputElement>) {
-        // TODO debouncing
-        const id = parseInt(event.target.value);
+  async function handleInputChanged(event: ChangeEvent<HTMLInputElement>) {
+    // TODO debouncing
+    const id = parseInt(event.target.value);
 
-        if (Number.isNaN(id)) {
-            dispatch.pokemon.changeSelectedPokemon(undefined)
-            return;
-        }
-
-        await dispatch.pokemon.selectPokemon(id);
+    if (Number.isNaN(id)) {
+      dispatch.pokemon.changeSelectedPokemon(undefined)
+      return;
     }
 
-    return (
+    await dispatch.pokemon.selectPokemon(id);
+  }
+
+  return (
+      <div>
         <div>
-            <h1>Pokemon</h1>
-            <input onChange={handleInputChanged}/>
-            <p>{selectedPokemon?.name}</p>
-            <a href="/">Back</a>
+          <h1>Pokemon Lookup</h1>
+          <input onChange={handleInputChanged}/>
+          <p>{selectedPokemon?.name}</p>
         </div>
-    );
+        <a href="/">Back</a>
+      </div>
+  );
 };
 
 export default PokemonWithStore;
