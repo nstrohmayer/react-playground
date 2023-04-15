@@ -9,8 +9,6 @@ const Home: React.FC = () => {
             <a href={`/pokemon`}>Pokemon</a>
             <a href={`/pokemonWithStore`}>Pokemon with store</a>
             <h2>Dead By Daylight</h2>
-            <a href={`/dead-by-daylight/maps`}>DBD Maps</a>
-            <br/>
             <a href={`/dead-by-daylight/perks`}>DBD Perks</a>
         </div>
     );
