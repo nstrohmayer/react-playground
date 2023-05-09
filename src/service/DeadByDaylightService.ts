@@ -39,7 +39,6 @@ export async function fetchAllPerksTyped(): Promise<Perk[]> {
         return undefined
       }
     })
-    // .sort((a, b) => ((a?.name ?? "") < (b?.name ?? "") ? -1 : 1)) // TODO fix sorting & more sophisticated solution for ordering + finding ID
     .filter((perk) => perk !== undefined)
 
   return mappedPerks as Perk[]
