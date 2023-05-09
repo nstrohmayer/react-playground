@@ -39,6 +39,7 @@ const PerkList: () => React.JSX.Element = () => {
           }
           return (
             <div key={perk.id}>
+              {/* eslint-disable-next-line */}
               <p>{`${perk.name} (${getLocation(perk)})`}</p>
             </div>
           )

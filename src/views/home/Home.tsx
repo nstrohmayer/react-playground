@@ -1,15 +1,16 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const Home: React.FC = () => {
   return (
     <div>
       <p>Welcome to DBD Utils</p>
-      <a href={"/counter"}>Counter</a>
+      <Link to={"/counter"}>Counter</Link>
       <h2>Pokemon</h2>
-      <a href={"/pokemon"}>Pokemon</a>
-      <a href={"/pokemonWithStore"}>Pokemon with store</a>
+      <Link to={"/pokemon"}>Pokemon</Link>
+      <Link to={"/pokemonWithStore"}>Pokemon with store</Link>
       <h2>Dead By Daylight</h2>
-      <a href={"/dead-by-daylight/perks"}>DBD Perks</a>
+      <Link to={"/dead-by-daylight/perks"}>DBD Perks</Link>
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import React from "react"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom"
 import "./App.css"
-import Counter from "./views/counter/Counter"
 import ErrorPage from "./error-page"
+import Counter from "./views/counter/Counter"
 import Home from "./views/home/Home"
 import Pokemon from "./views/pokemon/Pokemon"
 import PokemonWithStore from "./views/pokemon/Pokemon_withStore"
 import PerkOverview from "./views/deadByDaylight/perks/PerkOverview"
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />,

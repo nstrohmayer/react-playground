@@ -1,6 +1,7 @@
 {
   "name": "react-playground",
   "version": "0.1.0",
+  "homepage": "https://nstrohmayer.github.io/react-playground",
   "private": true,
   "proxy": "https://dbd.tricky.lol/",
   "scripts": {
@@ -10,7 +11,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ignore-path .eslintignore .",
-    "prettier": "prettier --write \"**/*.+(ts|tsx|json|css|md)\""
+    "prettier": "prettier --write \"**/*.+(ts|tsx|json|css|md)\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -46,6 +49,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.7"
   },
   "eslintConfig": {

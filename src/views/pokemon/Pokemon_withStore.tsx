@@ -1,6 +1,7 @@
 import React, { type ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { type Dispatch, type RootState } from "../../store"
+import { Link } from "react-router-dom"
 
 const PokemonWithStore: React.FC = () => {
   const selectedPokemon = useSelector((state: RootState) => state.pokemon.selectedPokemon)
@@ -25,7 +26,7 @@ const PokemonWithStore: React.FC = () => {
         <input onChange={handleInputChanged} />
         <p>{selectedPokemon?.name}</p>
       </div>
-      <a href="/">Back</a>
+      <Link to={"/"}>Back</Link>
     </div>
   )
 }
