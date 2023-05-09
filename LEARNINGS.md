@@ -27,3 +27,4 @@
 
 - React.FC accepts props while JSX.Element does not
 - JSX.Element renders JSX elements at runtime while React.FC renders a React component function
+  - JSX.Element is deprecated and should be replaced with React.JSX.Element

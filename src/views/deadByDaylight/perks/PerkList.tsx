@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
-import React from "react"
-import { type Perk } from "./Perk"
-import { fetchAllPerksTyped } from "../../../service/DeadByDaylightService"
+import React, { useState } from "react"
+import { type Perk, Role } from "./Perk"
+import { fetchAllPerksTyped, getLocation } from "../../../service/DeadByDaylightService"
+import { Switch } from "@mui/material"
 
-const PerkList: () => JSX.Element = () => {
+const PerkList: () => React.JSX.Element = () => {
+  const [selectedRole, setSelectedRole] = useState(Role.SURVIVOR)
   const { isLoading, data, isError, error, isSuccess } = useQuery<Perk[]>(
     ["fetch-all-perks"],
     async () => {
@@ -11,8 +13,13 @@ const PerkList: () => JSX.Element = () => {
     },
     {
       refetchOnWindowFocus: false,
+      refetchOnMount: false,
     }
   )
+
+  function handleSelectedRoleChanged(event: React.ChangeEvent<HTMLInputElement>): void {
+    setSelectedRole(event.target.checked ? Role.SURVIVOR : Role.KILLER)
+  }
 
   if (isLoading) {
     return <h2>Loading all perks...</h2>
@@ -21,8 +28,20 @@ const PerkList: () => JSX.Element = () => {
   if (isSuccess) {
     return (
       <div>
+        <div>
+          Killer
+          <Switch checked={selectedRole === Role.SURVIVOR} onChange={handleSelectedRoleChanged} />
+          Survivor
+        </div>
         {data.map((perk: Perk) => {
-          return <p key={perk.id}>{perk.name}</p>
+          if (perk.role !== selectedRole) {
+            return undefined
+          }
+          return (
+            <div key={perk.id}>
+              <p>{`${perk.name} (${getLocation(perk)})`}</p>
+            </div>
+          )
         })}
       </div>
     )
