@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   },
 ])
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   return (
     <div className="App">
       <RouterProvider router={router} />
