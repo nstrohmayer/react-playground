@@ -7,6 +7,7 @@ import Home from './views/home/Home';
 import Pokemon from './views/pokemon/Pokemon';
 import PokemonWithStore from './views/pokemon/Pokemon_withStore';
 import MapsComponent from "./views/deadByDaylight/MapsComponent";
+import PerkOverview from "./views/deadByDaylight/perks/PerkOverview"
 
 const router = createBrowserRouter([
     {
@@ -25,15 +26,20 @@ const router = createBrowserRouter([
     }, {
         path: '/dead-by-daylight/maps',
         element: <MapsComponent/>
-    }
+    },
+    {
+        path: "/dead-by-daylight/perks",
+        element: <PerkOverview />,
+    },
+
 ]);
 
-function App() {
-    return (
-        <div className="App">
-            <RouterProvider router={router}/>
-        </div>
-    );
+function App(): React.JSX.Element {
+  return (
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  )
 }
 
-export default App;
+export default App
