@@ -29,7 +29,8 @@
       {
         "checksVoidReturn": false
       }
-    ]
+    ],
+    "@typescript-eslint/object-curly-spacing": "off"
   },
   "settings": {
     "react": {

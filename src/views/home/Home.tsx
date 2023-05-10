@@ -11,6 +11,7 @@ const Home: React.FC = () => {
       <Link to={"/pokemonWithStore"}>Pokemon with store</Link>
       <h2>Dead By Daylight</h2>
       <Link to={"/dead-by-daylight/perks"}>DBD Perks</Link>
+      <Link to={"/dead-by-daylight/maps"}>DBD Maps</Link>
     </div>
   )
 }
